@@ -2,17 +2,15 @@ import React from 'react';
 
 class YouTubeDebugger extends React.Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
-            js: {
-                errors: [],
-                user: null,
-                settings: {
-                    bitrate: 8,
-                    video: {
-                        resolution: '1080p'
-                    }
+            errors: [],
+            user: null,
+            settings: {
+                bitrate: 8,
+                video: {
+                    resolution: '1080p'
                 }
             }
         }
@@ -20,24 +18,24 @@ class YouTubeDebugger extends React.Component {
 
     changeBitRate = () => {
         this.setState({
-            js: {
-                settings: {
-                    bitrate: 12
-                }
+            settings: {
+                ...this.state.settings,
+                bitrate: 12
             }
-        }, () => console.log(`${this.state.js.settings.bitrate}`));
+        });
     }
 
     changeResolution = () => {
         this.setState({
-            js: {
-                settings: {
-                    video: {
-                        resolution: '720p'
-                    }
+            settings: {
+                ...this.state.settings,
+                video: {
+                    ...this.state.settings.video,
+                    resolution: '720p'
                 }
             }
-        }, () => console.log(`${this.state.js.settings.video.resolution}`));
+        });
+    }
 
         // Or this can be defined using the Object.assign method:
 
@@ -48,16 +46,14 @@ class YouTubeDebugger extends React.Component {
         //         })
         //     })
 
-    }
 
     render() {
         return (
-
             <div>
-                <button class='bitrate' onClick={this.changeBitRate} >Bitrate Button</button>
-                <button class='resolution' onClick={this.changeResolution} >Resolution Button</button>
+                <button className='bitrate' onClick={this.changeBitRate}>Change Bitrate</button>
+                <button className='resolution' onClick={this.changeResolution}>Change Resolution</button>
             </div>
-        )
+        );
     }
 }
 
