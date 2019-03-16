@@ -3,16 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "extract-text-webpack-plugin": "^3.0.1",
     "jsdom": "^9.9.1",
-    "mocha": "^6.0.2",
+    "mocha": "^4.0.0",
     "react-scripts": "^2.1.8",
-    "react-test-renderer": "^16.0.0",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^3.2.1"
+    "react-test-renderer": "^16.0.0"
   },
   "dependencies": {
-    "ajv": "^5.5.2",
+    "acorn": "^6.1.1",
+    "ajv": "^6.10.0",
     "babel-core": "^6.22.1",
     "babel-loader": "^7.1.2",
     "babel-preset-airbnb": "^2.1.1",
@@ -26,7 +24,8 @@
     "mocha-multi": "^1.0.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "sinon": "^1.17.7"
+    "sinon": "^1.17.7",
+    "typescript": "^3.3.3333"
   },
   "scripts": {
     "start": "react-scripts start",

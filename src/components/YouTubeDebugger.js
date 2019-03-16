@@ -2,30 +2,61 @@ import React from 'react';
 
 class YouTubeDebugger extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            timesClicked: 0
+            js: {
+                errors: [],
+                user: null,
+                settings: {
+                    bitrate: 8,
+                    video: {
+                        resolution: '1080p'
+                    }
+                }
+            }
         }
     }
 
-    addClickNums = () => {
-        const addNum = (this.state.timesClicked + 1)
+    changeBitRate = () => {
         this.setState({
-            timesClicked: addNum
-        }, () => console.log(`Clicked ${this.state.timesClicked} Times...`));
+            js: {
+                settings: {
+                    bitrate: 12
+                }
+            }
+        }, () => console.log(`${this.state.js.settings.bitrate}`));
     }
 
-    // addClickNums = () => {
-        // this.setState(prevState => ({
-            // timesClicked: prevState.timesClicked + 1
-        // }))
-    // }
+    changeResolution = () => {
+        this.setState({
+            js: {
+                settings: {
+                    video: {
+                        resolution: '720p'
+                    }
+                }
+            }
+        }, () => console.log(`${this.state.js.settings.video.resolution}`));
+
+        // Or this can be defined using the Object.assign method:
+
+        // this.setState({
+        //     settings: Object.assign({}, this.state.settings, {
+        //         video: Object.assign({}, this.state.settings.video, {
+        //             resolution: '720p'
+        //         })
+        //     })
+
+    }
 
     render() {
         return (
 
-            <button onClick={this.addClickNums} >{this.state.timesClicked}</button>
+            <div>
+                <button class='bitrate' onClick={this.changeBitRate} >Bitrate Button</button>
+                <button class='resolution' onClick={this.changeResolution} >Resolution Button</button>
+            </div>
         )
     }
 }
